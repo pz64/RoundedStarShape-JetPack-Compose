@@ -1,4 +1,4 @@
-package com.example.compose_polygonshape
+package com.pz64.compose_polygonshape
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
