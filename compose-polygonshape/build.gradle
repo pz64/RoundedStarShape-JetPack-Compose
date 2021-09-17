@@ -4,6 +4,9 @@ plugins {
     id 'maven-publish'
 }
 
+group = 'com.pz64.shape'
+version = '1.0'
+
 android {
     compileSdk 31
 
@@ -43,3 +46,17 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }
 
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.pz64.shape'
+                artifactId = 'Rounded-Star-Shape'
+                version = '1.0'
+            }
+        }
+    }
+}

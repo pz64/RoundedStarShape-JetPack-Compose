@@ -1,4 +1,4 @@
-package com.pz64.compose_polygonshape
+package com.pz64.shape
 
 import org.junit.Test
 
