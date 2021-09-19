@@ -64,8 +64,6 @@ Surface(
 #### Output
 <img height="100" src="readme_assets/star_curve0.09.jpg">
 
-
-<br>
 <br>
 
 ### All adjustments
@@ -98,8 +96,8 @@ Surface(
 #### Output
 <img height="100" src="readme_assets/poly_pentagon.jpg">
 
-
 <br>
+
 ### All adjustments
 <img height="500" alt="GIF" src="readme_assets/polygon.gif" />
 
