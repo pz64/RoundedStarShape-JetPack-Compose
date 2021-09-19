@@ -71,10 +71,7 @@ Surface(
 ### All adjustments
 <img height="500" alt="GIF" src="readme_assets/rounded_star.gif" />
 
-
-<br><br>
-
-
+<br>
 ### PolygonShape()
 
 ``` kotlin
@@ -103,8 +100,6 @@ Surface(
 
 
 <br>
-<br>
-
 ### All adjustments
 <img height="500" alt="GIF" src="readme_assets/polygon.gif" />
 
