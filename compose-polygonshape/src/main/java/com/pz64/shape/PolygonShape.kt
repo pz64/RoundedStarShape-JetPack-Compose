@@ -11,13 +11,23 @@ import kotlin.math.cos
 import kotlin.math.min
 import kotlin.math.sin
 
-class PolygonShape(sides: Int) : Shape {
+
+/**
+ * A shape describing Polygons
+ *
+ * Note: The shape draws within the minimum of provided width and height so can't be used to create stretched shape.
+ *
+ * @param sides number of sides.
+ * @param rotation double value between 0.0 - 2π
+ */
+class PolygonShape(sides: Int, private val rotation: Double = 0.0) : Shape {
 
     private companion object {
-        const val TWOPI = 2 * PI
+        const val TWO_PI = 2 * PI
     }
 
-    private val STEPCOUNT = (TWOPI) / sides
+    private val STEPCOUNT = ((TWO_PI) / sides)
+
 
     override fun createOutline(
         size: Size,
@@ -32,18 +42,29 @@ class PolygonShape(sides: Int) : Shape {
 
         moveTo(xCenter, yCenter)
 
-        var step = 0.0
+        var t = -rotation
 
-        while (step <= TWOPI) {
-            val x = r * cos(step)
-            val y = r * sin(step)
+        while (t <= TWO_PI) {
+            val x = r * cos(t)
+            val y = r * sin(t)
             lineTo((x + xCenter).toFloat(), (y + yCenter).toFloat())
 
-            step += STEPCOUNT
+            t += STEPCOUNT
         }
 
-        val x = r * cos(step)
-        val y = r * sin(step)
+        val x = r * cos(t)
+        val y = r * sin(t)
         lineTo((x + xCenter).toFloat(), (y + yCenter).toFloat())
     })
 }
+
+/**
+ * A shape describing Polygons
+ *
+ * Note: The shape draws within the minimum of provided width and height so can't be used to create stretched shape.
+ *
+ * @param sides number of sides.
+ * @param rotationDegree float value between 0 - 360
+ */
+fun PolygonShape(sides: Int, rotationDegree: Float = 0f) =
+    PolygonShape(sides, (PI / 180) * rotationDegree)

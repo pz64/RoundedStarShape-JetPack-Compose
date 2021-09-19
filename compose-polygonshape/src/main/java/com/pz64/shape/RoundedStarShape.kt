@@ -11,17 +11,29 @@ import kotlin.math.cos
 import kotlin.math.min
 import kotlin.math.sin
 
+/**
+ * A shape describing star with rounded corners
+ *
+ * Note: The shape draws within the minimum of provided width and height so can't be used to create stretched shape.
+ *
+ * @param sides number of sides.
+ * @param curve a double value between 0.0 - 1.0 for modifying star curve.
+ * @param rotation double value between 0.0 - 2π
+ * @param iterations a value between 0 - 360 that determines the quality of star shape.
+ */
 class RoundedStarShape(
     private val sides: Int,
-    private val depth: Double = 0.09,
-    iterations: Int = 360
-) : Shape {
+    private val curve: Double = 0.09,
+    private val rotation: Double = 0.0,
+    iterations: Int = 360,
+
+    ) : Shape {
 
     private companion object {
-        const val TWOPI = 2 * PI
+        const val TWO_PI = 2 * PI
     }
 
-    private val steps = (TWOPI) / min(iterations, 360)
+    private val steps = (TWO_PI) / min(iterations, 360)
 
     override fun createOutline(
         size: Size,
@@ -30,7 +42,7 @@ class RoundedStarShape(
     ): Outline = Outline.Generic(Path().apply {
 
 
-        val r = min(size.height, size.width) * 0.4 * mapRange(1.0, 0.0, 0.5, 1.0, depth)
+        val r = min(size.height, size.width) * 0.4 * mapRange(1.0, 0.0, 0.5, 1.0, curve)
 
         val xCenter = size.width * .5f
         val yCenter = size.height * .5f
@@ -39,22 +51,43 @@ class RoundedStarShape(
 
         var t = 0.0
 
-        while (t <= TWOPI) {
-            val x = r * (cos(t) * (1 + depth * cos(sides * t)))
-            val y = r * (sin(t) * (1 + depth * cos(sides * t)))
+        while (t <= TWO_PI) {
+            val x = r * (cos(t - rotation) * (1 + curve * cos(sides * t)))
+            val y = r * (sin(t - rotation) * (1 + curve * cos(sides * t)))
             lineTo((x + xCenter).toFloat(), (y + yCenter).toFloat())
 
             t += steps
         }
 
-        val x = r * (cos(t) * (1 + depth * cos(sides * t)))
-        val y = r * (sin(t) * (1 + depth * cos(sides * t)))
+        val x = r * (cos(t - rotation) * (1 + curve * cos(sides * t)))
+        val y = r * (sin(t - rotation) * (1 + curve * cos(sides * t)))
         lineTo((x + xCenter).toFloat(), (y + yCenter).toFloat())
 
-
     })
+
+
     private fun mapRange(a: Double, b: Double, c: Double, d: Double, x: Double): Double {
         return (x - a) / (b - a) * (d - c) + c
     }
 }
+
+
+/**
+ * A shape describing star with rounded corners
+ *
+ * Note: The shape draws within the minimum of provided width and height so can't be used to create stretched shape.
+ *
+ * @param sides number of sides.
+ * @param curve a double value between 0.0 - 1.0 for modifying star curve.
+ * @param rotationDegree float value between 0 - 360
+ * @param iterations a value between 0 - 360 that determines the quality of star shape.
+ */
+fun RoundedStarShape(
+    sides: Int,
+    curve: Double = 0.09,
+    rotationDegree: Float = 0f,
+    iterations: Int = 360,
+) = RoundedStarShape(sides, curve, (PI / 180) * rotationDegree, iterations)
+
+
 
