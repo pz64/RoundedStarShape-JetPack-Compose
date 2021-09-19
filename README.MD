@@ -38,7 +38,7 @@ dependencies {
 
 ``` kotlin
 val roundedStarShape = RoundedStarShape(
-    sides = 7,
+    sides = 5,
     curve = 0.09,
     rotationDegree = 0f,
     iterations = 360
