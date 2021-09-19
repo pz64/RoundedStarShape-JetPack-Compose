@@ -12,12 +12,12 @@
 ## How to install
 
 copy `compose-polygonshape` directory to your project directory.
+<br>
 
-
-include  `compose-polygonshape` in the `settings.gradle`
+Add entry  `compose-polygonshape` to the existing app entry `settings.gradle`
 
 ```groovy
-Include ':compose-polygonshape'
+include ':app', ':compose-polygonshape'
 ```
 
 Add as dependency in `app/build.gradle`
@@ -30,6 +30,7 @@ dependencies {
 }
 ```
 
+#### In case of build errors, simply copy  <a href="tree/main/compose-polygonshape/src/main/java/com/pz64/shape"><strong>these classes</strong></a> to your project.
 
 ## Usage
 
