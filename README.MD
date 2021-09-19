@@ -11,7 +11,7 @@
 
 ## How to install
 
-copy `compose-polygonshape` to your project directory.
+copy `compose-polygonshape` directory to your project directory.
 
 
 include  `compose-polygonshape` in the `settings.gradle`
