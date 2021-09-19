@@ -40,7 +40,7 @@ dependencies {
 val roundedStarShape = RoundedStarShape(
     sides = 5,
     curve = 0.09,
-    rotationDegree = 0f,
+    rotation = 0f,
     iterations = 360
 )
 
@@ -73,7 +73,7 @@ Surface(
 ### PolygonShape()
 
 ``` kotlin
-val polygonShape = PolygonShape(sides = 5, rotationDegree = 0f)
+val polygonShape = PolygonShape(sides = 5, rotation = 0f)
 
 Surface(
     shape = polygonShape,
