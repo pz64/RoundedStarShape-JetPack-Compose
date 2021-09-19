@@ -82,7 +82,7 @@ private fun RoundedStarShapeCard() {
             val roundedStarShape = RoundedStarShape(
                 sides = sides.toInt(),
                 curve = depth.toDouble(),
-                rotationDegree = rotation,
+                rotation = rotation,
                 iterations = iteration.toInt()
             )
 
@@ -152,7 +152,7 @@ private fun PolygonShapeCard() {
             var rotation by remember { mutableStateOf(0f) }
 
 
-            val polygonShape = PolygonShape(sides = polySides.toInt(), rotationDegree = rotation)
+            val polygonShape = PolygonShape(sides = polySides.toInt(), rotation = rotation)
 
             Surface(
                 shape = polygonShape,
