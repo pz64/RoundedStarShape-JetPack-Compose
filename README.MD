@@ -30,7 +30,7 @@ dependencies {
 }
 ```
 
-#### In case of build errors, simply copy  <a href="tree/main/compose-polygonshape/src/main/java/com/pz64/shape"><strong>these classes</strong></a> to your project.
+#### In case of build errors, simply copy  <a href="compose-polygonshape/src/main/java/com/pz64/shape"><strong>these classes</strong></a> to your project.
 
 ## Usage
 
