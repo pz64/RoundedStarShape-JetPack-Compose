@@ -192,6 +192,36 @@ private fun PolygonShapeCard() {
 
 @Composable
 @Preview
+fun ScreenPreviewtest() {
+    ComposePolygonsTheme {
+
+        Surface(color = MaterialTheme.colors.background) {
+
+            val polygonShape = PolygonShape(sides = 5, rotationDegree = 0f)
+
+            Surface(
+                shape = polygonShape,
+
+            ) {
+                Box(
+                    modifier = Modifier
+                        .background(color = Color(0x70205C47))
+                        .size(160.dp),
+                    contentAlignment = Center
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.ic_icon_2),
+                        contentDescription = "",
+                        modifier = Modifier.size(56.dp)
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+@Preview
 fun RoundedStarShapeCardPreview() {
     ComposePolygonsTheme {
         // A surface container using the 'background' color from the theme
